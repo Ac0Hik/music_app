@@ -1,0 +1,5 @@
+/env
+/music_player/db.sqlite3
+/music_player/api/__pycache__
+/music_player/music_player/__pycache__
+/music_player/api/migrations/__pycache__
