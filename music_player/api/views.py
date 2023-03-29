@@ -1,8 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import Room
+from .serializers import RoomSerializer
+
+
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+
 
 # Create your views here.
 
-
-def mn(request):
-    return HttpResponse('welcome to the home page')
+@api_view(['GET'])
+def RoomView(request):
+    queryset =  Room.objects.all()
+    serializer = RoomSerializer(queryset, many=True)
+    return Response(serializer.data)
